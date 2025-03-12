@@ -4,6 +4,7 @@
  * Author       : PEJ
  * Created Date : 2024.10.23
  * Reference    : 
+ * Modified     : 2025.03.12 : 박은정 : 서보모터 작동 코드 수정
 ******************************************************************************************/
 const char* board_firmware_verion = "smartFee_0.91";
 
@@ -20,7 +21,7 @@ ET_IoT_App app;
 //==========================================================================================.
 #include <Servo.h>
 Servo servo;                                             // 서보 모터 객체 생성
-const int servo_pin = D8;                                // 서보 모터 핀 : D8
+const int servo_pin = D6;                                // 서보 모터 핀: D6
 
 
 //==========================================================================================
@@ -52,6 +53,8 @@ void et_setup()                                          // 사용자 맞춤형 
 {
   pinMode(motor_pin1, OUTPUT);                           // 모터 제어 핀 1: 출력 모드
   pinMode(motor_pin2, OUTPUT);                           // 모터 제어 핀 2: 출력 모드
+
+  servo.attach(servo_pin);                               // 서버 모터 핀: 출력 모드
 
   pinMode(motor_button, INPUT);                          // 모터 제어 버튼: 입력 모드
 
